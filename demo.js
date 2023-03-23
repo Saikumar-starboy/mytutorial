@@ -1,14 +1,26 @@
-var item = document.querySelector('.list-group-item:nth-child(2)');
-item.style.backgroundColor = "green";
+var newDiv = document.createElement('div');
 
-var item1 = document.querySelector('.list-group-item:nth-child(3)');
-item1.style.visibility = "hidden";
+newDiv.className='Hello';
+newDiv.id = 'hello1';
 
-var items2 = document.querySelectorAll('.list-group-item');
- items2[1].style.color = 'red';
+newDiv.setAttribute('title','Hello div');
 
- var odd = document.querySelectorAll('.list-group-item:nth-child(odd)');
+var newDivText = document.createTextNode('HEllo ');
 
- for(var i=0;i<odd.length;i++){
- odd[i].style.backgroundColor = "green";
- }
+newDiv.appendChild(newDivText);
+
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+
+container.insertBefore(newDiv,h1);
+
+console.log(newDiv);
+
+// adding hello before item1
+var parentNode = document.getElementById('items');
+var element = parentNode.innerHTML;
+var text = '<li>HELLo</li>';
+
+parentNode.innerHTML = text + parentNode.innerHTML;
+
+
