@@ -14,12 +14,14 @@ function addItem(e){
     e.preventDefault();
      
     var newItem = document.getElementById('item').value;
+    var newDescrition = document.getElementById('description').value;
 
     var li = document.createElement('li');
 
     li.className = 'list-group-item';
 
     li.appendChild(document.createTextNode(newItem));
+    li.appendChild(document.createTextNode(" "+newDescrition));
 
     var deleteBtn = document.createElement('button');
 
@@ -48,10 +50,12 @@ function filterItems(e){
 
     Array.from(items).forEach(function(item){
         var itemName = item.firstChild.textContent;
-        if(itemName.toLowerCase().indexOf(text) != -1){
+        var description = item.childNodes[1].textContent;
+
+        if(itemName.toLowerCase().indexOf(text) != -1 || description.toLowerCase().indexOf(text) != -1){
              item.style.display = 'block';
             }else {
-                item.style.display = 'none';
+             item.style.display = 'none';
             }
     });
     
